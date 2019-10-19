@@ -78,7 +78,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     //---------------------------------------------------
 
     private static final String CERO = "0";
-    private static final String BARRA = "/";
+    private static final String BARRA = "-";
 
     //Calendario para obtener fecha & hora
     public final Calendar c = Calendar.getInstance();
@@ -491,13 +491,22 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.id_obtener_fecha:
-                obtenerFecha();
+            case R.id.id_obtener_fechaIni:
+                obtenerFechaIni();
+                break;
+
+            case R.id.id_obtener_fechaFin:
+                obtenerFechaFin();
                 break;
         }
     }
+
+
+
+
+
     // Mofificar  para ambas fechas -------------------------------------------------------------------------------------------------------
-        private void obtenerFecha() {
+        private void obtenerFechaIni() {
             DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -520,6 +529,31 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
             //Muestro el widget
             recogerFecha.show();
         }
+
+
+    private void obtenerFechaFin() {
+        DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                //Esta variable lo que realiza es aumentar en uno el mes ya que comienza desde 0 = enero
+                final int mesActual = month + 1;
+                //Formateo el día obtenido: antepone el 0 si son menores de 10
+                String diaFormateado = (dayOfMonth < 10) ? CERO + String.valueOf(dayOfMonth) : String.valueOf(dayOfMonth);
+                //Formateo el mes obtenido: antepone el 0 si son menores de 10
+                String mesFormateado = (mesActual < 10) ? CERO + String.valueOf(mesActual) : String.valueOf(mesActual);
+                //Muestro la fecha con el formato deseado
+                FechaFin.setText(year + BARRA + mesFormateado + BARRA + diaFormateado);
+
+
+            }
+            //Estos valores deben ir en ese orden, de lo contrario no mostrara la fecha actual
+            /*
+             *También puede cargar los valores que usted desee
+             */
+        }, anio, mes, dia);
+        //Muestro el widget
+        recogerFecha.show();
+    }
 
         //endregion
 

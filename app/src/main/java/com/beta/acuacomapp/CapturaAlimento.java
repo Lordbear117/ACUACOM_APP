@@ -80,7 +80,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
     //---------------------------------------------------
 
     private static final String CERO = "0";
-    private static final String BARRA = "/";
+    private static final String BARRA = "-";
 
     //Calendario para obtener fecha & hora
     public final Calendar c = Calendar.getInstance();
