@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="alimento">
+        <item>YORBA</item>
+        <item>HASQUER</item>
+        <item>PURINA</item>
+        <item>PREVITEP</item>
+        <item>INNOVA</item>
+        <item>FUDCAM</item>
+        <item>AZTECA</item>
+    </string-array>
+
+    <string-array name="alimento_ID">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="tipo">
+        <item>MIGAJA 1 40%</item>
+        <item>MIGAJA 2 40%</item>
+        <item>MIGAJA 3 40%</item>
+        <item>MICROPELLET 35%</item>
+        <item>MICROPELLET 30%</item>
+        <item>MICROPELLET 25%</item>
+        <item>MICROPELLET 20%</item>
+        <item>PELLET 35%</item>
+        <item>PELLET 30%</item>
+        <item>PREY-D</item>
+        <item>SULFATO DE COBRE</item>
+        <item>CAL</item>
+        <item>BIOBALANCE</item>
+        <item>HARINA DE QRILL</item>
+        <item>PELLET CORTO</item>
+    </string-array>
+
+
+    <string-array name="zona">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+    </string-array>
+
+    <string-array name="estanque">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+    </string-array>
+
+    <string-array name="ciclo">
+        <item>1</item>
+        <item>2</item>
+
+    </string-array>
+
+</resources>

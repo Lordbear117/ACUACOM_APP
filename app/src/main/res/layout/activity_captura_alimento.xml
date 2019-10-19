@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CapturaAlimento"
+    android:focusableInTouchMode="true"
+   >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true"
+        android:gravity="top"
+        >
+       // app:title="Captura de Alimento"   app:navigationIcon="@drawable/ic_menu_24dp"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+
+            app:navigationContentDescription="Navigation icon"
+            android:theme="@style/Principal"
+            app:popupTheme="@style/Principal"
+            app:hideOnScroll="true"
+            app:collapseContentDescription="@string/app_name"
+
+            app:titleTextColor="#fff"
+            android:background="@color/primaryColor"
+            >
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:theme="@style/Principal"
+        android:background="#F2F2F2">
+
+
+        // Layout de toda la pantalla
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:gravity="bottom"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="     Fecha"
+                    >
+                </TextView>
+
+                // android:hint="Fecha"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+
+                android:labelFor="@id/etFecha"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFecha"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:maxLines="1"
+                    android:textColor="#000"
+                    android:layout_gravity="left"
+                    android:enabled="false"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/id_obtener_fecha"
+                    android:layout_width="68dp"
+                    android:layout_height="41dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/primaryColor"
+                    android:src="@drawable/ic_fecha_24dp"
+                    tools:ignore="ContentDescription" />
+
+            </FrameLayout>
+
+
+            // Contiene ZONA y ESTANQUE
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:gravity="bottom">
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight = "1"
+                    android:text="Zona                                                            Estanque">
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:gravity="bottom">
+
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#fff"
+                    app:rippleColor="@color/primaryLightColor"
+                    app:cardElevation="8dp"
+                    android:layout_weight = "1"
+                    >
+
+                    <Spinner
+                        android:id="@+id/SpinZona"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:padding="20dp"
+                        android:layout_weight = "1"
+                        >
+                    </Spinner>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight = "1">
+
+                </View>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#fff"
+                    app:rippleColor="@color/primaryLightColor"
+                    app:cardElevation="8dp"
+                    android:layout_weight = "1"
+                    >
+
+                    <Spinner
+                        android:id="@+id/SpinEstanque"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:padding="20dp"
+                        android:layout_weight = "1"
+                        >
+                    </Spinner>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+
+            // Contiene CICLO
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight = "1"
+                    android:text="Ciclo"
+                    android:padding="5dp">
+                </TextView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#fff"
+                    app:rippleColor="@color/primaryLightColor"
+                    app:cardElevation="8dp"
+                    android:paddingTop="20dp"
+                    android:padding="20dp"
+                    >
+
+                    <Spinner
+                        android:id="@+id/SpinCiclo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:padding="20dp"
+                        >
+                    </Spinner>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+                // Contiene ALIMENTO
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="bottom">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight = "1"
+                        android:text="Alimento"
+                        android:padding="5dp">
+                    </TextView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="#fff"
+                app:rippleColor="@color/primaryLightColor"
+                app:cardElevation="8dp"
+                android:paddingTop="20dp"
+                android:padding="20dp"
+                >
+
+                <Spinner
+                    android:id="@+id/SpinAlimento"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:padding="20dp"
+                    >
+                </Spinner>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            //  Contiene TIPO
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight = "1"
+                    android:text="Tipo"
+                    android:padding="5dp">
+                </TextView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cardBackgroundColor="#fff"
+                    app:rippleColor="@color/primaryLightColor"
+                    app:cardElevation="8dp"
+                    android:paddingTop="20dp"
+                    >
+
+                    <Spinner
+                        android:id="@+id/SpinTipo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:padding="20dp"
+
+                        >
+                    </Spinner>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            //  Contiene CANTIDAD
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="      Cantidad"
+                >
+
+            </TextView>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCantidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </FrameLayout>
+
+
+
+            //  Contiene GRANJA
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:hint="Granja"
+                android:visibility="gone"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etGranja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:enabled="false"
+                    android:visibility="gone"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            //  Contiene UNIDAD (Litros Kilos)
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:hint="Unidad"
+                android:visibility="gone"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUnidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:maxLines="1"
+                    android:inputType="number"
+                    android:enabled="false"
+                    android:visibility="gone"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            // Contiene el boton de REGISTRO
+            <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+                >
+
+                  <com.google.android.material.button.MaterialButton
+                      android:id="@+id/btnRegistrar"
+                      android:layout_marginTop="20dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="60dp"
+                      app:backgroundTint="@color/primaryColor"
+                      android:text="Registrar"
+                      >
+
+    </com.google.android.material.button.MaterialButton>
+
+
+
+
+
+</LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

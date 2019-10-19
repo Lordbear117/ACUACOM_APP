@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MenuPrincipal"
+    >
+
+    // Home Button,should appear as action button if possible ->
+
+    //item
+        android:id="@+id/home_button"
+        android:title="HOME"
+        android:icon="@drawable/ic_menu_24dp"
+        app:showAsAction="ifRoom"
+        android:actionLayout=""
+        />
+
+    // Settings,should always appear be appear in the overflow menu.->
+
+    <item
+        android:id="@+id/settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+</menu>
+
