@@ -89,7 +89,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     final int anio = c.get(Calendar.YEAR);
 
     //Widgets
-    ImageButton ibObtenerFecha;
+    ImageButton ibObtenerFechaIni;
+    ImageButton ibObtenerFechaFin;
 
     //-------------------------------------------------
 
@@ -118,7 +119,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
 
     // Creando EditText
-    EditText Cantidad, Fecha, Granja, Unidad;
+    EditText Cantidad, FechaIni, FechaFin, Granja, Unidad;
 
     // Creando un botón
     Button InsertButton;
@@ -152,8 +153,11 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
 
         // Obtener fecha con boton - - Widget ImageButton del cual usaremos el evento clic para obtener la fecha
-        ibObtenerFecha = (ImageButton) findViewById(R.id.id_obtener_fecha);
-        ibObtenerFecha.setOnClickListener(this);
+        ibObtenerFechaIni = (ImageButton) findViewById(R.id.id_obtener_fechaIni);
+        ibObtenerFechaIni.setOnClickListener(this);
+
+        ibObtenerFechaFin = (ImageButton) findViewById(R.id.id_obtener_fechaFin);
+        ibObtenerFechaFin.setOnClickListener(this);
 
         //  Esto es necesario para poner el menu en la toolbar
         MaterialToolbar toolbar = (MaterialToolbar) findViewById(R.id.toolbar);
@@ -302,7 +306,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
         // Asigna ID´s a los EditText.
         Cantidad = (EditText) findViewById(R.id.etCantidad);
-        Fecha = (EditText) findViewById(R.id.etFecha);
+        FechaIni = (EditText) findViewById(R.id.etFechaIni);
+        FechaFin = (EditText) findViewById(R.id.etFechaFin);
         Granja = (EditText) findViewById(R.id.etGranja);
         Unidad = (EditText) findViewById(R.id.etUnidad);
 
@@ -349,7 +354,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         Granja.setText(GranjaId);
 
         // Ingresa la fecha  en el EditText
-        Fecha.setText(fDate);
+        FechaIni.setText(fDate);
+        FechaFin.setText(fDate);
         Unidad.setText("1");
 
         // Cambiar nombre del toolbar
@@ -389,29 +395,22 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
     // Metodo para obtener los valores de los EditText
     public void GetValueFromEditText(){
-        FechaHolder = Fecha.getText().toString().trim();
-        //ZonaHolder = Zona;
-       // ZonaHolder = Integer.toString(Zona);
+        FechaHolder = FechaIni.getText().toString().trim();
+      //  FechaIniHolder = FechaIni.getText().toString().trim();
+      //  FechaFinHolder = FechaFin.getText().toString().trim();
         ZonaHolder = dataZona;
-       // EstanqueHolder = Estanque;
         EstanqueHolder = dataEstanque;
-
         CicloHolder  = Ciclo;
 
-        //AlimentoHolder = Integer.toString(Alimento);
+
         AlimentoHolder = dataAlimento;
 
-      //  TipoHolder = Tipo;
-       // TipoHolder = Integer.toString(Tipo);
         TipoHolder = dataTipo;
 
         CantidadHolder = Cantidad.getText().toString().trim();
         GranjaHolder = Granja.getText().toString().trim();
 
         UnidadHolder = Unidad.getText().toString().trim();
-
-
-
     }
 
     // Metodo para registrar la informacion en la base de datos
@@ -456,6 +455,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                 params.put("unidad", UnidadHolder);
                 params.put("cantidad", CantidadHolder);
                 params.put("fecha", FechaHolder);
+                //params.put("fecha", FechaHolder);   Fecha Incial
+                //params.put("fecha", FechaHolder);   Fecha Final
 
                 return params;
             }
@@ -463,7 +464,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         };
 
         // Creating RequestQueue.
-       // RequestQueue requestQueue = Volley.newRequestQueue(CapturaAlimento.this);
+       // RequestQueue requestQueue = Volley.newRequestQueue(CapturaBiometrias.this);
 
         // Adding the StringRequest object into requestQueue.
         //requestQueue.add(stringRequest);
@@ -486,6 +487,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         return true;
     }
 
+    // Mofificar  para ambas fechas -------------------------------------------------------------------------------------------------------
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -494,7 +496,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                 break;
         }
     }
-
+    // Mofificar  para ambas fechas -------------------------------------------------------------------------------------------------------
         private void obtenerFecha() {
             DatePickerDialog recogerFecha = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
@@ -506,7 +508,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                     //Formateo el mes obtenido: antepone el 0 si son menores de 10
                     String mesFormateado = (mesActual < 10) ? CERO + String.valueOf(mesActual) : String.valueOf(mesActual);
                     //Muestro la fecha con el formato deseado
-                    Fecha.setText(year + BARRA + mesFormateado + BARRA + diaFormateado);
+                    FechaIni.setText(year + BARRA + mesFormateado + BARRA + diaFormateado);
 
 
                 }
