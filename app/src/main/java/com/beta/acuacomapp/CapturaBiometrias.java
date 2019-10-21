@@ -55,24 +55,15 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     private ArrayList<String> descripcionEstanque = new ArrayList<String>();
     private ArrayList<String> estanque = new ArrayList<String>();
 
-    private ArrayList<AlimentoModel> alimentosModelArrayList;
-    private ArrayList<String> nombreAlimento = new ArrayList<String>();
-    private ArrayList<String> alimento = new ArrayList<String>();
 
-    private ArrayList<TipoModel> tiposModelArrayList;
-    private ArrayList<String> nombreTipo = new ArrayList<String>();
-    private ArrayList<String> tipo = new ArrayList<String>();
 
-    String dataZona, dataEstanque, dataAlimento, dataTipo;
+    String dataZona, dataEstanque;
 
     // Arreglo que guarda la conversion de ARRAYLIST a ARRAY
     String[] arrayZonas;
 
     String[] arrayEstanques;
 
-    String[] arrayAlimentos;
-
-    String[] arrayTipos;
 
 
     //---------------------------------------------------
@@ -100,7 +91,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     //-------------------------------------------------
 
     //  Spinners nuevos
-    Spinner SpZona, SpEstanque, SpAlimento, SpTipo, SpCiclo;
+    Spinner SpZona, SpEstanque, SpCiclo;
 
     // Contenedores de los datos del spinner
     String  Ciclo;
@@ -119,7 +110,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
 
     // Creando EditText
-    EditText Cantidad, FechaIni, FechaFin, Granja, Unidad;
+    EditText Cantidad, FechaIni, FechaFin, Granja;
 
     // Creando un botón
     Button InsertButton;
@@ -136,7 +127,9 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     ProgressDialog progressDialog;
 
     // Guarda la URL del servidor en una variable String.
-    String HttpUrl = "http://10.0.1.195/member/insertar_alimento.php";
+    String HttpUrl = "http://10.0.1.195/member/insertar_biometrias.php";
+
+
 
     String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO"};
 
@@ -173,71 +166,15 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         //  Asignar ID a los Spinner
         SpZona = (Spinner) findViewById(R.id.SpinZona);
         SpEstanque = (Spinner) findViewById(R.id.SpinEstanque);
-        SpAlimento = (Spinner) findViewById(R.id.SpinAlimento);
-        SpTipo = (Spinner) findViewById(R.id.SpinTipo);
         SpCiclo = (Spinner) findViewById(R.id.SpinCiclo);
 
-        /**
-         Creación del spinner de alimento
-         */
-          //  ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-           // R.array.alimento, android.R.layout.simple_spinner_item);
 
-         //  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-           // SpAlimento.setAdapter(adapter);
-
-        //Adding setOnItemSelectedListener method on spinner.
-        SpAlimento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1,
-                                       int arg2, long arg3) {
-              //  Toast.makeText(CapturaAlimento.this, SpAlimento.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
-
-                dataAlimento = arrayAlimentos[arg2];
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-            }
-        });
-
-        /**
-         Creación del spinner de tipo
-         */
-           //  ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
-            // R.array.tipo, android.R.layout.simple_spinner_item);
-
-             //adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-             // SpTipo.setAdapter(adapter1);
-
-        //Adding setOnItemSelectedListener method on spinner.
-        SpTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> arg0, View arg1,
-                                       int arg2, long arg3) {
-               // Tipo = SpTipo.getSelectedItem().toString();
-                dataTipo = arrayTipos[arg2];
-
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-            }
-        });
 
         /**
          // Creación del spinner zona
          */
-            // ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-          //   R.array.zona, android.R.layout.simple_spinner_item);
 
-           //  adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //     SpZona.setAdapter(adapter2);
-
-        //Adding setOnItemSelectedListener method on spinner.
         SpZona.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -254,14 +191,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         /**
          Creación del spinner estanque
          */
-           // ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
-         //   R.array.estanque, android.R.layout.simple_spinner_item);
 
-          //  adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-           //  SpEstanque.setAdapter(adapter3);
-
-        //Adding setOnItemSelectedListener method on spinner.
         SpEstanque.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -285,7 +215,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
         SpCiclo.setAdapter(adapter4);
 
-        //Adding setOnItemSelectedListener method on spinner.
+
         SpCiclo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -309,7 +239,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         FechaIni = (EditText) findViewById(R.id.etFechaIni);
         FechaFin = (EditText) findViewById(R.id.etFechaFin);
         Granja = (EditText) findViewById(R.id.etGranja);
-        Unidad = (EditText) findViewById(R.id.etUnidad);
 
 
         // Asigna ID para el boton
@@ -356,7 +285,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         // Ingresa la fecha  en el EditText
         FechaIni.setText(fDate);
         FechaFin.setText(fDate);
-        Unidad.setText("1");
 
         // Cambiar nombre del toolbar
         NombreGranja = ArrayNombreGranjas[Integer.parseInt(GranjaId)];
@@ -366,8 +294,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
         // Método para obtner Zonas con volley de la base de datos
         getVolleyZonas();
-        getVolleyAlimentos();
-        getVolleyTipos();
+
 
 
         //endregion
@@ -402,15 +329,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         EstanqueHolder = dataEstanque;
         CicloHolder  = Ciclo;
 
-
-        AlimentoHolder = dataAlimento;
-
-        TipoHolder = dataTipo;
-
         CantidadHolder = Cantidad.getText().toString().trim();
         GranjaHolder = Granja.getText().toString().trim();
-
-        UnidadHolder = Unidad.getText().toString().trim();
     }
 
     // Metodo para registrar la informacion en la base de datos
@@ -717,160 +637,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
 
 
-
-    private void getVolleyAlimentos(){
-
-        URLline = "http://10.0.1.195/member/get_alimento.php";
-
-        Log.d("getxxx",URLline);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.d("strrrrr",">>"+response);
-                        // Toast.makeText(CapturaAlimento.this,response,Toast.LENGTH_LONG).show();
-                        // Aqui le envia el "response" al otro metodo para obtener la informacion del arreglo
-                        retrieveJSONAlimentos(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //displaying the error in toast if occurrs
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-        // request queue
-       // RequestQueue requestQueue = Volley.newRequestQueue(this);
-
-        //requestQueue.add(stringRequest);
-        MySingleton.getInstance(this).addToRequestQueue(stringRequest);
-    }
-
-    private void retrieveJSONAlimentos(String response) {
-
-
-
-        //showSimpleProgressDialog(this, "Loading...","Fetching Json",false);
-        try{
-            JSONObject obj = new JSONObject(response);
-            if(obj.optString("status").equals("true")){
-                alimentosModelArrayList = new ArrayList<>();
-                JSONArray dataArray  = obj.getJSONArray("data");
-
-                // Se limpian los ArrayList
-                // Sirve para llenar el spinner siempre con la infromacion nueva
-                // La informacion relacionada con el spinner padre
-
-                for (int i = 0; i < dataArray.length(); i++) {
-
-                    AlimentoModel dataModel = new AlimentoModel();
-                    JSONObject dataobj = dataArray.getJSONObject(i);
-
-                    dataModel.setAlimento(dataobj.getString("alimento_id"));
-                    dataModel.setNombreAlimento(dataobj.getString("nombre"));
-
-                    alimentosModelArrayList.add(dataModel);
-                }
-
-                for (int i = 0; i < alimentosModelArrayList.size(); i++){
-                    nombreAlimento.add(alimentosModelArrayList.get(i).getNombreAlimento().toString());
-                    alimento.add(alimentosModelArrayList.get(i).getAlimento().toString());
-                }
-                arrayAlimentos = alimento.toArray(new String[] {});
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(CapturaBiometrias.this, simple_spinner_item, nombreAlimento);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-                SpAlimento.setAdapter(adapter);
-
-                //    removeSimpleProgressDialog();
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-
-
-    private void getVolleyTipos(){
-
-        URLline = "http://10.0.1.195/member/get_tipos.php";
-
-        Log.d("getxxx",URLline);
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLline,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.d("strrrrr",">>"+response);
-                        // Toast.makeText(CapturaAlimento.this,response,Toast.LENGTH_LONG).show();
-                        // Aqui le envia el "response" al otro metodo para obtener la informacion del arreglo
-                        retrieveJSONTipos(response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //displaying the error in toast if occurrs
-                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-        // request queue
-       // RequestQueue requestQueue = Volley.newRequestQueue(this);
-
-        //requestQueue.add(stringRequest);
-        MySingleton.getInstance(this).addToRequestQueue(stringRequest);
-    }
-
-    private void retrieveJSONTipos(String response) {
-
-
-
-        //showSimpleProgressDialog(this, "Loading...","Fetching Json",false);
-        try{
-            JSONObject obj = new JSONObject(response);
-            if(obj.optString("status").equals("true")){
-                tiposModelArrayList = new ArrayList<>();
-                JSONArray dataArray  = obj.getJSONArray("data");
-
-                // Se limpian los ArrayList
-                // Sirve para llenar el spinner siempre con la infromacion nueva
-                // La informacion relacionada con el spinner padre
-
-                for (int i = 0; i < dataArray.length(); i++) {
-
-                    TipoModel dataModel = new TipoModel();
-                    JSONObject dataobj = dataArray.getJSONObject(i);
-
-                    dataModel.setTipo(dataobj.getString("tipo_id"));
-                    dataModel.setNombreTipo(dataobj.getString("nombre"));
-
-                    tiposModelArrayList.add(dataModel);
-                }
-
-                for (int i = 0; i < tiposModelArrayList.size(); i++){
-                    nombreTipo.add(tiposModelArrayList.get(i).getNombreTipo().toString());
-                    tipo.add(tiposModelArrayList.get(i).getTipo().toString());
-                }
-                arrayTipos = tipo.toArray(new String[] {});
-
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(CapturaBiometrias.this, simple_spinner_item, nombreTipo);
-                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-                SpTipo.setAdapter(adapter1);
-
-                //    removeSimpleProgressDialog();
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 
 
 

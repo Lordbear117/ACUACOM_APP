@@ -145,6 +145,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="10dp"
                 >
 
                 <TextView
@@ -284,85 +285,7 @@
             </LinearLayout>
 
 
-                // Contiene ALIMENTO
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="bottom">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight = "1"
-                        android:text="Alimento"
-                        android:padding="5dp">
-                    </TextView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardBackgroundColor="#fff"
-                app:rippleColor="@color/primaryLightColor"
-                app:cardElevation="8dp"
-                android:paddingTop="20dp"
-                android:padding="20dp"
-                >
-
-                <Spinner
-                    android:id="@+id/SpinAlimento"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:padding="20dp"
-                    >
-                </Spinner>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            //  Contiene TIPO
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="20dp"
-                android:gravity="bottom">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight = "1"
-                    android:text="Tipo"
-                    android:padding="5dp">
-                </TextView>
-
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardBackgroundColor="#fff"
-                    app:rippleColor="@color/primaryLightColor"
-                    app:cardElevation="8dp"
-                    android:paddingTop="20dp"
-                    >
-
-                    <Spinner
-                        android:id="@+id/SpinTipo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:padding="20dp"
-
-                        >
-                    </Spinner>
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
 
             //  Contiene CANTIDAD
         <FrameLayout
@@ -401,6 +324,47 @@
         </FrameLayout>
 
 
+            //  Contiene PESO PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="      Peso Promedio"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPesoProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+
+
+
+
 
             //  Contiene GRANJA
             <com.google.android.material.textfield.TextInputLayout
@@ -424,29 +388,6 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            //  Contiene UNIDAD (Litros Kilos)
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:hint="Unidad"
-                android:visibility="gone"
-
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etUnidad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:enabled="false"
-                    android:visibility="gone"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
 
 
             // Contiene el boton de REGISTRO
