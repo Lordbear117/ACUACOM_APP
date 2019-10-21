@@ -4,6 +4,8 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +38,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static android.R.layout.simple_spinner_item;
 
@@ -110,7 +114,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
 
     // Creando EditText
-    EditText Cantidad, FechaIni, FechaFin, Granja;
+    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm;
 
     // Creando un botón
     Button InsertButton;
@@ -239,6 +243,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         FechaIni = (EditText) findViewById(R.id.etFechaIni);
         FechaFin = (EditText) findViewById(R.id.etFechaFin);
         Granja = (EditText) findViewById(R.id.etGranja);
+        PesoProm = (EditText) findViewById(R.id.etPesoProm);
 
 
         // Asigna ID para el boton
@@ -290,6 +295,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         NombreGranja = ArrayNombreGranjas[Integer.parseInt(GranjaId)];
         setTitle("Captura de Biometrias: "+NombreGranja);
 
+        PesoProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
+
 
 
         // Método para obtner Zonas con volley de la base de datos
@@ -316,6 +323,29 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public class DecimalDigitsInputFilter implements InputFilter {
+
+        Pattern mPattern;
+
+        public DecimalDigitsInputFilter(int digitsBeforeZero,int digitsAfterZero) {
+            mPattern=Pattern.compile("[0-9]{0," + (digitsBeforeZero-1) + "}+((\\.[0-9]{0," + (digitsAfterZero-1) + "})?)||(\\.)?");
+        }
+
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+
+            Matcher matcher=mPattern.matcher(dest);
+            if(!matcher.matches())
+                return "";
+            return null;
+        }
+
+    }
+
+
+
 
 
 
