@@ -86,6 +86,7 @@
                     android:textColor="#000"
                     android:layout_gravity="left"
                     android:enabled="false"
+                    android:background="#ffffff"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -340,6 +341,7 @@
                     android:textColor="#000"
                     android:maxLines="1"
                     android:inputType="number"
+                    android:background="#ffffff"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 

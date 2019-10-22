@@ -295,6 +295,11 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         NombreGranja = ArrayNombreGranjas[Integer.parseInt(GranjaId)];
         setTitle("Captura de Biometrias: "+NombreGranja);
 
+        /**
+         FILTROS
+         */
+
+        // Filtro para solo poner 4 decimales
         PesoProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
 
 
@@ -325,6 +330,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     }
 
 
+    // Filtro que permite poner una cantidad determinada de digitos antes y despues del punto ( . )
     public class DecimalDigitsInputFilter implements InputFilter {
 
         Pattern mPattern;

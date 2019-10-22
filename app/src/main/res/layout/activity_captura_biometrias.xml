@@ -173,7 +173,9 @@
                         android:enabled="false"
                         android:inputType="date"
                         android:maxLines="1"
-                        android:textColor="#000" />
+                        android:textColor="#000"
+                        android:background="#ffffff"
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -224,7 +226,8 @@
                         android:enabled="false"
                         android:inputType="date"
                         android:maxLines="1"
-                        android:textColor="#000" />
+                        android:textColor="#000"
+                        android:background="#ffffff"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -318,6 +321,7 @@
                     android:textColor="#000"
                     android:maxLines="1"
                     android:inputType="number"
+                    android:background="#ffffff"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -355,6 +359,7 @@
                         android:textColor="#000"
                         android:maxLines="1"
                         android:inputType="numberDecimal"
+                        android:background="#ffffff"
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
