@@ -106,7 +106,7 @@
             </FrameLayout>
 
 
-            // Contiene ZONA y ESTANQUE
+            // CONTIENE ZONA y ESTANQUE
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
