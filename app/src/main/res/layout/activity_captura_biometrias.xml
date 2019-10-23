@@ -368,6 +368,89 @@
 
 
 
+            //  Contiene PORCENTAJE DE SOBREVIVENCIA
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="      Porcentaje de Sobrevivencia"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPorcentajeSobre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+
+            //  Contiene PORCENTAJE DE RECAMBIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="      Porcentaje de Recambio"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPorcentajeRecam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+
+
+
+
 
 
 
