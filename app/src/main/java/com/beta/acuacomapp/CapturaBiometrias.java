@@ -131,7 +131,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     ProgressDialog progressDialog;
 
     // Guarda la URL del servidor en una variable String.
-    String HttpUrl = "http://10.0.1.195/member/insertar_biometrias.php";
+    String HttpUrl = "http://10.0.1.84/member/insertar_biometrias.php";
 
 
 
@@ -516,7 +516,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
     private void getVolleyZonas(){
 
-        URLline = "http://10.0.1.195/member/get_zonas.php?granjas="+GranjaId;
+        URLline = "http://10.0.1.84/member/get_zonas.php?granjas="+GranjaId;
 
         Log.d("getxxx",URLline);
 
@@ -593,7 +593,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
     private void getVolleyEstanques(){
 
-        URLline = "http://10.0.1.195/member/get_estanque.php?zonas="+dataZona;
+        URLline = "http://10.0.1.84/member/get_estanque.php?zonas="+dataZona;
 
         Log.d("getxxx",URLline);
 
