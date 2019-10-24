@@ -114,7 +114,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
 
     // Creando EditText
-    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm;
+    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm, PorcentajeSobre,PorcentajeRecam;
 
     // Creando un botón
     Button InsertButton;
@@ -244,6 +244,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         FechaFin = (EditText) findViewById(R.id.etFechaFin);
         Granja = (EditText) findViewById(R.id.etGranja);
         PesoProm = (EditText) findViewById(R.id.etPesoProm);
+        PorcentajeSobre = (EditText) findViewById(R.id.etPorcentajeSobre);
+        PorcentajeRecam = (EditText) findViewById(R.id.etPorcentajeRecam);
 
 
         // Asigna ID para el boton
@@ -298,7 +300,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         /**
          FILTROS
          */
-
         // Filtro para solo poner 4 decimales
         PesoProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
 
