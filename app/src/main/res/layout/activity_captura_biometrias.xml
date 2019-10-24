@@ -447,6 +447,84 @@
             </FrameLayout>
 
 
+            // CONTIENE OXIGENO MINIMO Y MAXIMO, LAYOUT BIEN ARREGLADO
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:text="Oxigeno Mínimo"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="0"
+
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="right"
+                    android:text="Oxigeno Máximo"
+                    android:paddingRight="20dp"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    >
+                </TextView>
+
+
+
+                // CONTIENE OXIGENO MINIMO
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_gravity="left"
+
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOxigenoMin"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                // CONTIENE OXIGENO MAXIMO
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingRight="10dp"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_gravity="right"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOxigenoMax"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </GridLayout>
+
+
 
 
 
