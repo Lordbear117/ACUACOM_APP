@@ -151,18 +151,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="     Fecha Inicial"
+                    android:text="Fecha Inicial"
+                    android:paddingLeft="18dp"
                     >
                 </TextView>
 
-                // android:hint="Fecha"
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:labelFor="@id/etFecha"
-
                     android:padding="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -204,18 +203,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="     Fecha Final"
+                    android:text="Fecha Final"
+                    android:paddingLeft="18dp"
                     >
                 </TextView>
 
-                // android:hint="Fecha"
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:labelFor="@id/etFechaFin"
-
                     android:padding="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -258,9 +256,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight = "1"
                     android:text="Ciclo"
-                    android:padding="5dp">
+                    android:padding="5dp"
+                    android:paddingLeft="18dp">
                 </TextView>
 
 
@@ -290,44 +288,6 @@
 
 
 
-            //  Contiene CANTIDAD
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="      Cantidad"
-                >
-
-            </TextView>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etCantidad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:background="#ffffff"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </FrameLayout>
-
-
             //  Contiene PESO PROMEDIO
             <FrameLayout
                 android:layout_width="match_parent"
@@ -338,7 +298,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="      Peso Promedio"
+                    android:text="Peso Promedio"
+                    android:paddingLeft="18dp"
                     >
 
                 </TextView>
@@ -350,6 +311,7 @@
                     android:layout_height="wrap_content"
                     android:padding="20dp"
 
+
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -359,7 +321,7 @@
                         android:textColor="#000"
                         android:maxLines="1"
                         android:inputType="numberDecimal"
-                        android:background="#ffffff"
+
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
