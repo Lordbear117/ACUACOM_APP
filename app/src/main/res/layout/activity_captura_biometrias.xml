@@ -55,7 +55,7 @@
             android:gravity="bottom"
             >
 
-            // Contiene ZONA y ESTANQUE
+            // CONTIENE ZONA y ESTANQUE
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -151,9 +151,6 @@
 
             </GridLayout>
 
-
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
             // CONTIENE FECHA INICIAL
@@ -489,6 +486,87 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etOxigenoMax"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </GridLayout>
+
+
+
+
+            // CONTIENE TEMERATURA MINIMA Y MAXIMA
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                >
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:text="Temperatura Mínima"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="0"
+
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="right"
+                    android:text="Temperatura Máxima"
+
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    >
+                </TextView>
+
+
+
+                // CONTIENE TEMERATURA MINIMA
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_gravity="left"
+
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTemperaturaMin"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                // CONTIENE TEMERATURA MAXIMA
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingRight="10dp"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_gravity="right"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTemperaturaMax"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
