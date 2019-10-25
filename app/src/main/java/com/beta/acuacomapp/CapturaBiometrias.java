@@ -114,7 +114,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
 
     // Creando EditText
-    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm, PorcentajeSobre,PorcentajeRecam;
+    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm, PorcentajeSobre,PorcentajeRecam, OxigenoMin, OxigenoMax
+            , TemperaturaMin, TemperaturaMax, SalinidadProm, PhProm, TurbulenciaProm;
 
     // Creando un botón
     Button InsertButton;
@@ -125,7 +126,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     RequestQueue requestQueue;
 
     // Variables string que almacenan información para guardar en la BD.
-    String AlimentoHolder, TipoHolder, CantidadHolder, FechaHolder, GranjaHolder, CicloHolder, ZonaHolder, EstanqueHolder, UnidadHolder;
+    String  FechaIniHolder, FechaFinHolder, GranjaHolder, CicloHolder, ZonaHolder, EstanqueHolder, PesoPromHolder, PorcentajeSobreHolder, PorcentajeRecamHolder, OxigenoMinHolder, OxigenoMaxHolder
+            , TemperaturaMinHolder, TemperaturaMaxHolder, SalinidadPromHolder, PhPromHolder, TurbulenciaPromHolder;
 
     // Creando un Pregress Dialog
     ProgressDialog progressDialog;
@@ -239,13 +241,22 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         //region TODO de EditText´s y Button
 
         // Asigna ID´s a los EditText.
-        Cantidad = (EditText) findViewById(R.id.etCantidad);
         FechaIni = (EditText) findViewById(R.id.etFechaIni);
         FechaFin = (EditText) findViewById(R.id.etFechaFin);
         Granja = (EditText) findViewById(R.id.etGranja);
         PesoProm = (EditText) findViewById(R.id.etPesoProm);
         PorcentajeSobre = (EditText) findViewById(R.id.etPorcentajeSobre);
         PorcentajeRecam = (EditText) findViewById(R.id.etPorcentajeRecam);
+        OxigenoMin = (EditText) findViewById(R.id.etOxigenoMin);
+        OxigenoMax = (EditText) findViewById(R.id.etOxigenoMax);
+        TemperaturaMin = (EditText) findViewById(R.id.etTemperaturaMin);
+        TemperaturaMax = (EditText) findViewById(R.id.etTemperaturaMax);
+        SalinidadProm = (EditText) findViewById(R.id.etSalinidadProm);
+        PhProm = (EditText) findViewById(R.id.etPhProm);
+        TurbulenciaProm = (EditText) findViewById(R.id.etTurbulenciaProm);
+
+
+
 
 
         // Asigna ID para el boton
@@ -270,7 +281,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                         progressDialog.setMessage("Porfavor espera, estamos registrando tu información");
                         progressDialog.show();
                         RegisterData();
-                        Cantidad.setText("");
+                        // Vaciar los campos de texto cuando se registre la informacion
+                        PesoProm.setText("");
                     }
                 }
             });
@@ -302,6 +314,17 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
          */
         // Filtro para solo poner 4 decimales
         PesoProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
+        PorcentajeSobre.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(4,2)});
+        PorcentajeRecam.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
+
+        OxigenoMin.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        OxigenoMax.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        TemperaturaMin.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        TemperaturaMax.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        SalinidadProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        PhProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,1)});
+        TurbulenciaProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(4,1)});
+
 
 
 
@@ -326,9 +349,10 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
     // Filtro que permite poner una cantidad determinada de digitos antes y despues del punto ( . )
@@ -342,7 +366,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-
             Matcher matcher=mPattern.matcher(dest);
             if(!matcher.matches())
                 return "";
@@ -352,22 +375,29 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     }
 
 
-
-
-
-
-
     // Metodo para obtener los valores de los EditText
     public void GetValueFromEditText(){
-        FechaHolder = FechaIni.getText().toString().trim();
-      //  FechaIniHolder = FechaIni.getText().toString().trim();
-      //  FechaFinHolder = FechaFin.getText().toString().trim();
         ZonaHolder = dataZona;
         EstanqueHolder = dataEstanque;
+
+        FechaIniHolder = FechaIni.getText().toString().trim();
+        FechaFinHolder = FechaFin.getText().toString().trim();
+
         CicloHolder  = Ciclo;
 
-        CantidadHolder = Cantidad.getText().toString().trim();
         GranjaHolder = Granja.getText().toString().trim();
+
+        PesoPromHolder = PesoProm.getText().toString().trim();
+        PorcentajeSobreHolder = PorcentajeSobre.getText().toString().trim();
+        PorcentajeRecamHolder = PorcentajeRecam.getText().toString().trim();
+
+        OxigenoMinHolder = OxigenoMin.getText().toString().trim();
+        OxigenoMaxHolder = OxigenoMax.getText().toString().trim();
+        TemperaturaMinHolder = TemperaturaMin.getText().toString().trim();
+        TemperaturaMaxHolder = TemperaturaMax.getText().toString().trim();
+        SalinidadPromHolder = SalinidadProm.getText().toString().trim();
+        PhPromHolder = PhProm.getText().toString().trim();
+        TurbulenciaPromHolder = TurbulenciaProm.getText().toString().trim();
     }
 
     // Metodo para registrar la informacion en la base de datos
@@ -407,13 +437,19 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                 params.put("zona", ZonaHolder);
                 params.put("estanque", EstanqueHolder);
                 params.put("ciclo", CicloHolder);
-                params.put("tipo", TipoHolder);
-                params.put("alimento", AlimentoHolder);
-                params.put("unidad", UnidadHolder);
-                params.put("cantidad", CantidadHolder);
-                params.put("fecha", FechaHolder);
-                //params.put("fecha", FechaHolder);   Fecha Incial
-                //params.put("fecha", FechaHolder);   Fecha Final
+                params.put("fechaIni", FechaIniHolder);
+                params.put("fechaFin", FechaFinHolder);
+
+                params.put("peso_prom", PesoPromHolder);
+                params.put("porcentaje_sobre", PorcentajeSobreHolder);
+                params.put("porcentaje_recam", PorcentajeRecamHolder);
+                params.put("oxigeno_min", OxigenoMinHolder);
+                params.put("oxigeno_max", OxigenoMaxHolder);
+                params.put("temperatura_min", TemperaturaMinHolder);
+                params.put("temperatura_max", TemperaturaMaxHolder);
+                params.put("salinidad_prom", SalinidadPromHolder);
+                params.put("ph_prom", PhPromHolder);
+                params.put("turbulencia_prom", TurbulenciaPromHolder);
 
                 return params;
             }
@@ -436,9 +472,46 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
      * @return
      */
     private boolean validateInputs() {
-        if(KEY_EMPTY.equals(CantidadHolder)){
-            Cantidad.setError("Cantidad no puede estar vacio");
-            Cantidad.requestFocus();
+        if(KEY_EMPTY.equals(PesoPromHolder)){
+            PesoProm.setError("Cantidad no puede estar vacio");
+            PesoProm.requestFocus();
+            return false;
+
+        }else if(KEY_EMPTY.equals(PorcentajeSobreHolder)){
+            PorcentajeSobre.setError("Cantidad no puede estar vacio");
+            PorcentajeSobre.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(PorcentajeRecamHolder)){
+            PorcentajeRecam.setError("Cantidad no puede estar vacio");
+            PorcentajeRecam.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(OxigenoMinHolder)){
+            OxigenoMin.setError("Cantidad no puede estar vacio");
+            OxigenoMin.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(OxigenoMaxHolder)){
+            OxigenoMax.setError("Cantidad no puede estar vacio");
+            OxigenoMax.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(TemperaturaMinHolder)){
+            TemperaturaMin.setError("Cantidad no puede estar vacio");
+            TemperaturaMin.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(TemperaturaMaxHolder)){
+            TemperaturaMax.setError("Cantidad no puede estar vacio");
+            TemperaturaMax.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(SalinidadPromHolder)){
+            SalinidadProm.setError("Cantidad no puede estar vacio");
+            SalinidadProm.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(PhPromHolder)){
+            PhProm.setError("Cantidad no puede estar vacio");
+            PhProm.requestFocus();
+            return false;
+        }else if(KEY_EMPTY.equals(TurbulenciaPromHolder)){
+            TurbulenciaProm.setError("Cantidad no puede estar vacio");
+            TurbulenciaProm.requestFocus();
             return false;
         }
         return true;
