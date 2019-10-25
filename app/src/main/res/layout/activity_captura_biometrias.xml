@@ -354,7 +354,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="      Porcentaje de Sobrevivencia"
+                    android:text="Porcentaje de Sobrevivencia"
+                    android:paddingLeft="18dp"
                     >
 
                 </TextView>
@@ -394,7 +395,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="      Porcentaje de Recambio"
+                    android:text="Porcentaje de Recambio"
+                    android:paddingLeft="18dp"
                     >
 
                 </TextView>
@@ -577,9 +579,129 @@
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-
             </GridLayout>
+
+
+            //  CONTIENE SALINIDAD PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom"
+                android:paddingTop="20dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Salinidad Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSalinidadProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+            //  CONTIENE PH PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Ph Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+            //  CONTIENE TURBULENCIA PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Turbulencia Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTurbulenciaProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
 
 
 
