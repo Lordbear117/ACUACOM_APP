@@ -335,8 +335,7 @@
                         android:textColor="#000"
                         android:maxLines="1"
                         android:inputType="numberDecimal"
-
-
+                        android:background="#ffffff"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 

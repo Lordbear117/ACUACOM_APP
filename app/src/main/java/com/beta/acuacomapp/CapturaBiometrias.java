@@ -485,34 +485,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
             PorcentajeRecam.setError("Cantidad no puede estar vacio");
             PorcentajeRecam.requestFocus();
             return false;
-        }else if(KEY_EMPTY.equals(OxigenoMinHolder)){
-            OxigenoMin.setError("Cantidad no puede estar vacio");
-            OxigenoMin.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(OxigenoMaxHolder)){
-            OxigenoMax.setError("Cantidad no puede estar vacio");
-            OxigenoMax.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(TemperaturaMinHolder)){
-            TemperaturaMin.setError("Cantidad no puede estar vacio");
-            TemperaturaMin.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(TemperaturaMaxHolder)){
-            TemperaturaMax.setError("Cantidad no puede estar vacio");
-            TemperaturaMax.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(SalinidadPromHolder)){
-            SalinidadProm.setError("Cantidad no puede estar vacio");
-            SalinidadProm.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(PhPromHolder)){
-            PhProm.setError("Cantidad no puede estar vacio");
-            PhProm.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(TurbulenciaPromHolder)){
-            TurbulenciaProm.setError("Cantidad no puede estar vacio");
-            TurbulenciaProm.requestFocus();
-            return false;
         }
         return true;
     }
