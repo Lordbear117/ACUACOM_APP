@@ -535,8 +535,6 @@
                     >
                 </TextView>
 
-
-
                 // CONTIENE TEMERATURA MINIMA
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
