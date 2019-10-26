@@ -471,6 +471,7 @@
                         android:maxLines="1"
                         android:inputType="numberDecimal"
                         android:background="#ffffff"
+                        android:nextFocusDown="@+id/etOxigenoMax"
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -494,6 +495,7 @@
                         android:maxLines="1"
                         android:inputType="numberDecimal"
                         android:background="#ffffff"
+                        android:nextFocusDown="@+id/etTemperaturaMin"
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -552,6 +554,7 @@
                         android:maxLines="1"
                         android:inputType="numberDecimal"
                         android:background="#ffffff"
+                        android:nextFocusDown="@+id/etTemperaturaMax"
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -575,6 +578,7 @@
                         android:maxLines="1"
                         android:inputType="numberDecimal"
                         android:background="#ffffff"
+
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
