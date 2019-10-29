@@ -281,8 +281,18 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                         progressDialog.setMessage("Porfavor espera, estamos registrando tu información");
                         progressDialog.show();
                         RegisterData();
+
                         // Vaciar los campos de texto cuando se registre la informacion
                         PesoProm.setText("");
+                        PorcentajeSobre.setText("");
+                        PorcentajeRecam.setText("");
+                        OxigenoMin.setText("");
+                        OxigenoMax.setText("");
+                        TemperaturaMin.setText("");
+                        TemperaturaMax.setText("");
+                        SalinidadProm.setText("");
+                        PhProm.setText("");
+                        TurbulenciaProm.setText("");
                     }
                 }
             });
@@ -480,10 +490,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         }else if(KEY_EMPTY.equals(PorcentajeSobreHolder)){
             PorcentajeSobre.setError("Cantidad no puede estar vacio");
             PorcentajeSobre.requestFocus();
-            return false;
-        }else if(KEY_EMPTY.equals(PorcentajeRecamHolder)){
-            PorcentajeRecam.setError("Cantidad no puede estar vacio");
-            PorcentajeRecam.requestFocus();
             return false;
         }
         return true;
