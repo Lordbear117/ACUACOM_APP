@@ -142,7 +142,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
 
     // String con los nombres de las granjas
-    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO"};
+    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO","CHAPETEADO"};
 
 
   //  String[] alimento_ID = getResources().getStringArray(R.array.alimento_ID);

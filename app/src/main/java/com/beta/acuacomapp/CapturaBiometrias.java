@@ -137,7 +137,7 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
 
 
-    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO"};
+    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO","CHAPETEADO"};
 
 
   //  String[] alimento_ID = getResources().getStringArray(R.array.alimento_ID);

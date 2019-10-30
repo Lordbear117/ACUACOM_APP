@@ -500,6 +500,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chapeteadocardId"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:layout_width="160dp"
@@ -549,6 +550,7 @@
 
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/mezquitillocardId"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:layout_width="160dp"
