@@ -181,12 +181,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          Creación del spinner de alimento
          */
-          //  ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-           // R.array.alimento, android.R.layout.simple_spinner_item);
-
-         //  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-           // SpAlimento.setAdapter(adapter);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpAlimento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -206,12 +200,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          Creación del spinner de tipo
          */
-           //  ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
-            // R.array.tipo, android.R.layout.simple_spinner_item);
-
-             //adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-             // SpTipo.setAdapter(adapter1);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -231,12 +219,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          // Creación del spinner zona
          */
-            // ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-          //   R.array.zona, android.R.layout.simple_spinner_item);
-
-           //  adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //     SpZona.setAdapter(adapter2);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpZona.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -255,12 +237,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          Creación del spinner estanque
          */
-           // ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
-         //   R.array.estanque, android.R.layout.simple_spinner_item);
 
-          //  adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-           //  SpEstanque.setAdapter(adapter3);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpEstanque.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -412,7 +389,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
         CantidadHolder = Cantidad.getText().toString().trim();
         GranjaHolder = Granja.getText().toString().trim();
-
         UnidadHolder = Unidad.getText().toString().trim();
 
 
