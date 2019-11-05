@@ -69,12 +69,12 @@ public class MenuPrincipal extends AppCompatActivity implements View.OnClickList
     }
 
     // Agrega los 3 puntos de la toolbar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.option_menu, menu); // Ref: Carpeta menu
-        return true;
-    }
+   // @Override
+    //public boolean onCreateOptionsMenu(Menu menu) {
+    //    MenuInflater inflater = getMenuInflater();
+    //    inflater.inflate(R.menu.option_menu, menu); // Ref: Carpeta menu
+    //    return true;
+    //}
 
 
     @Override
