@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "http://10.0.1.84/member/login.php";
+    private String login_url = "http://10.0.1.101/member/login.php";
     private SessionHandler session;
 
 
