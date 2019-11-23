@@ -33,7 +33,7 @@ public class SessionHandler {
         Date date = new Date();
 
         // Establece la sesión de usuario para los proximos 7 dias
-        long millis = date.getTime() + (7 * 24 * 60 * 60 * 1000);
+        long millis = date.getTime() + (20 * 24 * 60 * 60 * 1000);
         mEditor.putLong(KEY_EXPIRES, millis);
         mEditor.commit();
     }
