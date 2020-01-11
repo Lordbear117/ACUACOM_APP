@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "http://10.0.1.102/member/login.php";
+    private String login_url = "http://10.0.1.181/member/login.php";
     private SessionHandler session;
 
 
@@ -148,7 +148,7 @@ public class Login extends AppCompatActivity {
 
                         //  Muestra un mensaje de error siempre que uno suceda
                         Toast.makeText(getApplicationContext(),
-                                error.getMessage(), Toast.LENGTH_SHORT).show();
+                                "No funciona", Toast.LENGTH_SHORT).show();
 
                     }
                 });
