@@ -30,7 +30,8 @@ public class Login extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "http://10.0.1.181/member/login.php";
+   // private String login_url = "https://192.168.1.97/member/login.php";
+   private String login_url = "https://tallercelymel.000webhostapp.com/member/login.php";
     private SessionHandler session;
 
 
@@ -38,6 +39,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = new SessionHandler(getApplicationContext());
+
+
 
         // Revisa si hay una sesión activa para decidir que ACTIVITY abrir al inicio de la app
         if(session.isLoggedIn()){
@@ -148,7 +151,7 @@ public class Login extends AppCompatActivity {
 
                         //  Muestra un mensaje de error siempre que uno suceda
                         Toast.makeText(getApplicationContext(),
-                                "No funciona", Toast.LENGTH_SHORT).show();
+                                error.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });

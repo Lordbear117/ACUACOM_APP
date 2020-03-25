@@ -137,7 +137,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
     ProgressDialog progressDialog;
 
     // Guarda la URL del servidor en una variable String.
-    String HttpUrl = "http://10.0.1.181/member/insertar_alimento.php";
+    String HttpUrl = "http://192.168.1.100/member/insertar_alimento.php";
 
 
 
@@ -505,7 +505,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyZonas(){
 
-        URLline = "http://10.0.1.181/member/get_zonas.php?granjas="+GranjaId;
+        URLline = "http://192.168.1.100/member/get_zonas.php?granjas="+GranjaId;
 
         Log.d("getxxx",URLline);
 
@@ -582,7 +582,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyEstanques(){
 
-        URLline = "http://10.0.1.181/member/get_estanque.php?zonas="+dataZona;
+        URLline = "http://192.168.1.100/member/get_estanque.php?zonas="+dataZona;
 
         Log.d("getxxx",URLline);
 
@@ -665,7 +665,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyAlimentos(){
 
-        URLline = "http://10.0.1.181/member/get_alimento.php";
+        URLline = "http://192.168.1.100/member/get_alimento.php";
 
         Log.d("getxxx",URLline);
 
@@ -744,7 +744,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyTipos(){
 
-        URLline = "http://10.0.1.181/member/get_tipos.php";
+        URLline = "http://192.168.1.100/member/get_tipos.php";
 
         Log.d("getxxx",URLline);
 
