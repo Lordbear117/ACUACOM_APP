@@ -34,7 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
     private String confirmPassword;
     private String fullName;
     private ProgressDialog pDialog;
-    private String register_url = "http://10.0.1.195/member/register.php";
+    //private String register_url = "https://192.168.1.97/member/register.php";
+    private String register_url = "https://tallercelymel.000webhostapp.com/member/register.php";
     private SessionHandler session;
 
 

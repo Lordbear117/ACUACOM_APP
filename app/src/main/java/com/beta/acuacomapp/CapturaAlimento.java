@@ -137,12 +137,13 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
     ProgressDialog progressDialog;
 
     // Guarda la URL del servidor en una variable String.
-    String HttpUrl = "http://10.0.1.195/member/insertar_alimento.php";
+    //String HttpUrl = "http://192.168.1.97/member/insertar_alimento.php";
+    String HttpUrl = "https://tallercelymel.000webhostapp.com/member/insertar_alimento.php";
 
 
 
     // String con los nombres de las granjas
-    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO"};
+    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO","CHAPETEADO"};
 
 
   //  String[] alimento_ID = getResources().getStringArray(R.array.alimento_ID);
@@ -181,12 +182,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          Creación del spinner de alimento
          */
-          //  ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-           // R.array.alimento, android.R.layout.simple_spinner_item);
-
-         //  adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-           // SpAlimento.setAdapter(adapter);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpAlimento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -206,12 +201,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          Creación del spinner de tipo
          */
-           //  ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
-            // R.array.tipo, android.R.layout.simple_spinner_item);
-
-             //adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-             // SpTipo.setAdapter(adapter1);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpTipo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -231,12 +220,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          // Creación del spinner zona
          */
-            // ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-          //   R.array.zona, android.R.layout.simple_spinner_item);
-
-           //  adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //     SpZona.setAdapter(adapter2);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpZona.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -255,12 +238,7 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
         /**
          Creación del spinner estanque
          */
-           // ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
-         //   R.array.estanque, android.R.layout.simple_spinner_item);
 
-          //  adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-           //  SpEstanque.setAdapter(adapter3);
 
         //Adding setOnItemSelectedListener method on spinner.
         SpEstanque.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -412,7 +390,6 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
         CantidadHolder = Cantidad.getText().toString().trim();
         GranjaHolder = Granja.getText().toString().trim();
-
         UnidadHolder = Unidad.getText().toString().trim();
 
 
@@ -529,7 +506,8 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyZonas(){
 
-        URLline = "http://10.0.1.195/member/get_zonas.php?granjas="+GranjaId;
+        //URLline = "http://192.168.1.97/member/get_zonas.php?granjas="+GranjaId;
+        URLline = "https://tallercelymel.000webhostapp.com/member/get_zonas.php?granjas="+GranjaId;
 
         Log.d("getxxx",URLline);
 
@@ -606,7 +584,8 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyEstanques(){
 
-        URLline = "http://10.0.1.195/member/get_estanque.php?zonas="+dataZona;
+        //URLline = "http://192.168.1.97/member/get_estanque.php?zonas="+dataZona;
+        URLline = "https://tallercelymel.000webhostapp.com/member/get_estanque.php?zonas="+dataZona;
 
         Log.d("getxxx",URLline);
 
@@ -689,7 +668,8 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyAlimentos(){
 
-        URLline = "http://10.0.1.195/member/get_alimento.php";
+       // URLline = "http://192.168.1.97/member/get_alimento.php";
+        URLline = "https://tallercelymel.000webhostapp.com/member/get_alimento.php";
 
         Log.d("getxxx",URLline);
 
@@ -768,7 +748,8 @@ public class CapturaAlimento extends AppCompatActivity implements View.OnClickLi
 
     private void getVolleyTipos(){
 
-        URLline = "http://10.0.1.195/member/get_tipos.php";
+     //   URLline = "http://192.168.1.97/member/get_tipos.php";
+        URLline = "https://tallercelymel.000webhostapp.com/member/get_tipos.php";
 
         Log.d("getxxx",URLline);
 

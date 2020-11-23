@@ -114,7 +114,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     String fDate = new SimpleDateFormat("yyyy-MM-dd").format(cDate);
 
     // Creando EditText
-    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm;
+    EditText Cantidad, FechaIni, FechaFin, Granja, PesoProm, PorcentajeSobre,PorcentajeRecam, OxigenoMin, OxigenoMax
+            , TemperaturaMin, TemperaturaMax, SalinidadProm, PhProm, TurbulenciaProm;
 
     // Creando un botón
     Button InsertButton;
@@ -125,17 +126,19 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     RequestQueue requestQueue;
 
     // Variables string que almacenan información para guardar en la BD.
-    String AlimentoHolder, TipoHolder, CantidadHolder, FechaHolder, GranjaHolder, CicloHolder, ZonaHolder, EstanqueHolder, UnidadHolder;
+    String  FechaIniHolder, FechaFinHolder, GranjaHolder, CicloHolder, ZonaHolder, EstanqueHolder, PesoPromHolder, PorcentajeSobreHolder, PorcentajeRecamHolder, OxigenoMinHolder, OxigenoMaxHolder
+            , TemperaturaMinHolder, TemperaturaMaxHolder, SalinidadPromHolder, PhPromHolder, TurbulenciaPromHolder;
 
     // Creando un Pregress Dialog
     ProgressDialog progressDialog;
 
     // Guarda la URL del servidor en una variable String.
-    String HttpUrl = "http://10.0.1.195/member/insertar_biometrias.php";
+    //String HttpUrl = "http://192.168.1.100/member/insertar_biometrias.php";
+    String HttpUrl = "https://tallercelymel.000webhostapp.com/member/insertar_biometrias.php";
 
 
 
-    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO"};
+    String[] ArrayNombreGranjas ={"LUGAR 0","EL TIGRE","COSEMAR","CANACHI","COSPITA","ATARRAYA","ACUACOM","AGUILAS","TELEHUETO","CHAPETEADO"};
 
 
   //  String[] alimento_ID = getResources().getStringArray(R.array.alimento_ID);
@@ -239,11 +242,22 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         //region TODO de EditText´s y Button
 
         // Asigna ID´s a los EditText.
-        Cantidad = (EditText) findViewById(R.id.etCantidad);
         FechaIni = (EditText) findViewById(R.id.etFechaIni);
         FechaFin = (EditText) findViewById(R.id.etFechaFin);
         Granja = (EditText) findViewById(R.id.etGranja);
         PesoProm = (EditText) findViewById(R.id.etPesoProm);
+        PorcentajeSobre = (EditText) findViewById(R.id.etPorcentajeSobre);
+        PorcentajeRecam = (EditText) findViewById(R.id.etPorcentajeRecam);
+        OxigenoMin = (EditText) findViewById(R.id.etOxigenoMin);
+        OxigenoMax = (EditText) findViewById(R.id.etOxigenoMax);
+        TemperaturaMin = (EditText) findViewById(R.id.etTemperaturaMin);
+        TemperaturaMax = (EditText) findViewById(R.id.etTemperaturaMax);
+        SalinidadProm = (EditText) findViewById(R.id.etSalinidadProm);
+        PhProm = (EditText) findViewById(R.id.etPhProm);
+        TurbulenciaProm = (EditText) findViewById(R.id.etTurbulenciaProm);
+
+
+
 
 
         // Asigna ID para el boton
@@ -268,7 +282,18 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                         progressDialog.setMessage("Porfavor espera, estamos registrando tu información");
                         progressDialog.show();
                         RegisterData();
-                        Cantidad.setText("");
+
+                        // Vaciar los campos de texto cuando se registre la informacion
+                        PesoProm.setText("");
+                        PorcentajeSobre.setText("");
+                        PorcentajeRecam.setText("");
+                        OxigenoMin.setText("");
+                        OxigenoMax.setText("");
+                        TemperaturaMin.setText("");
+                        TemperaturaMax.setText("");
+                        SalinidadProm.setText("");
+                        PhProm.setText("");
+                        TurbulenciaProm.setText("");
                     }
                 }
             });
@@ -298,9 +323,19 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         /**
          FILTROS
          */
-
         // Filtro para solo poner 4 decimales
         PesoProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
+        PorcentajeSobre.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(4,2)});
+        PorcentajeRecam.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,4)});
+
+        OxigenoMin.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        OxigenoMax.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        TemperaturaMin.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        TemperaturaMax.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        SalinidadProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,2)});
+        PhProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(3,1)});
+        TurbulenciaProm.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(4,1)});
+
 
 
 
@@ -325,9 +360,10 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
         }
-
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
     // Filtro que permite poner una cantidad determinada de digitos antes y despues del punto ( . )
@@ -341,7 +377,6 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-
             Matcher matcher=mPattern.matcher(dest);
             if(!matcher.matches())
                 return "";
@@ -351,22 +386,29 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
     }
 
 
-
-
-
-
-
     // Metodo para obtener los valores de los EditText
     public void GetValueFromEditText(){
-        FechaHolder = FechaIni.getText().toString().trim();
-      //  FechaIniHolder = FechaIni.getText().toString().trim();
-      //  FechaFinHolder = FechaFin.getText().toString().trim();
         ZonaHolder = dataZona;
         EstanqueHolder = dataEstanque;
+
+        FechaIniHolder = FechaIni.getText().toString().trim();
+        FechaFinHolder = FechaFin.getText().toString().trim();
+
         CicloHolder  = Ciclo;
 
-        CantidadHolder = Cantidad.getText().toString().trim();
         GranjaHolder = Granja.getText().toString().trim();
+
+        PesoPromHolder = PesoProm.getText().toString().trim();
+        PorcentajeSobreHolder = PorcentajeSobre.getText().toString().trim();
+        PorcentajeRecamHolder = PorcentajeRecam.getText().toString().trim();
+
+        OxigenoMinHolder = OxigenoMin.getText().toString().trim();
+        OxigenoMaxHolder = OxigenoMax.getText().toString().trim();
+        TemperaturaMinHolder = TemperaturaMin.getText().toString().trim();
+        TemperaturaMaxHolder = TemperaturaMax.getText().toString().trim();
+        SalinidadPromHolder = SalinidadProm.getText().toString().trim();
+        PhPromHolder = PhProm.getText().toString().trim();
+        TurbulenciaPromHolder = TurbulenciaProm.getText().toString().trim();
     }
 
     // Metodo para registrar la informacion en la base de datos
@@ -406,13 +448,19 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
                 params.put("zona", ZonaHolder);
                 params.put("estanque", EstanqueHolder);
                 params.put("ciclo", CicloHolder);
-                params.put("tipo", TipoHolder);
-                params.put("alimento", AlimentoHolder);
-                params.put("unidad", UnidadHolder);
-                params.put("cantidad", CantidadHolder);
-                params.put("fecha", FechaHolder);
-                //params.put("fecha", FechaHolder);   Fecha Incial
-                //params.put("fecha", FechaHolder);   Fecha Final
+                params.put("fechaIni", FechaIniHolder);
+                params.put("fechaFin", FechaFinHolder);
+
+                params.put("peso_prom", PesoPromHolder);
+                params.put("porcentaje_sobre", PorcentajeSobreHolder);
+                params.put("porcentaje_recam", PorcentajeRecamHolder);
+                params.put("oxigeno_min", OxigenoMinHolder);
+                params.put("oxigeno_max", OxigenoMaxHolder);
+                params.put("temperatura_min", TemperaturaMinHolder);
+                params.put("temperatura_max", TemperaturaMaxHolder);
+                params.put("salinidad_prom", SalinidadPromHolder);
+                params.put("ph_prom", PhPromHolder);
+                params.put("turbulencia_prom", TurbulenciaPromHolder);
 
                 return params;
             }
@@ -435,9 +483,14 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
      * @return
      */
     private boolean validateInputs() {
-        if(KEY_EMPTY.equals(CantidadHolder)){
-            Cantidad.setError("Cantidad no puede estar vacio");
-            Cantidad.requestFocus();
+        if(KEY_EMPTY.equals(PesoPromHolder)){
+            PesoProm.setError("Cantidad no puede estar vacio");
+            PesoProm.requestFocus();
+            return false;
+
+        }else if(KEY_EMPTY.equals(PorcentajeSobreHolder)){
+            PorcentajeSobre.setError("Cantidad no puede estar vacio");
+            PorcentajeSobre.requestFocus();
             return false;
         }
         return true;
@@ -516,7 +569,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
     private void getVolleyZonas(){
 
-        URLline = "http://10.0.1.195/member/get_zonas.php?granjas="+GranjaId;
+       // URLline = "http://192.168.1.97/member/get_zonas.php?granjas="+GranjaId;
+        URLline = "https://tallercelymel.000webhostapp.com/member/get_zonas.php?granjas="+GranjaId;
 
         Log.d("getxxx",URLline);
 
@@ -593,7 +647,8 @@ public class CapturaBiometrias extends AppCompatActivity implements View.OnClick
 
     private void getVolleyEstanques(){
 
-        URLline = "http://10.0.1.195/member/get_estanque.php?zonas="+dataZona;
+       // URLline = "http://192.168.1.97/member/get_estanque.php?zonas="+dataZona;
+        URLline = "https://tallercelymel.000webhostapp.com/member/get_estanque.php?zonas="+dataZona;
 
         Log.d("getxxx",URLline);
 

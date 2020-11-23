@@ -14,7 +14,7 @@ import com.google.android.material.card.MaterialCardView;
 
 public class MenuGranjasAlimento extends AppCompatActivity implements View.OnClickListener {
 
-    private MaterialCardView EltigreCard, CosemarCard, CanachiCard, CospitaCard, AtarrayaCard, AcuacomCard, AguilasCard, TelehuetoCard;
+    private MaterialCardView EltigreCard, CosemarCard, CanachiCard, CospitaCard, AtarrayaCard, AcuacomCard, AguilasCard, TelehuetoCard, ChapeteadoCard;
 
     String NombreMenu ="";
 
@@ -37,6 +37,7 @@ public class MenuGranjasAlimento extends AppCompatActivity implements View.OnCli
         AcuacomCard = (MaterialCardView) findViewById(R.id.acuacomcardId);
         AguilasCard = (MaterialCardView) findViewById(R.id.aguilascardId);
         TelehuetoCard = (MaterialCardView) findViewById(R.id.telehuetocardId);
+        ChapeteadoCard = (MaterialCardView) findViewById(R.id.chapeteadocardId);
 
         //Click listeners para las cards
         EltigreCard.setOnClickListener(this);
@@ -47,6 +48,7 @@ public class MenuGranjasAlimento extends AppCompatActivity implements View.OnCli
         AcuacomCard.setOnClickListener(this);
         AguilasCard.setOnClickListener(this);
         TelehuetoCard.setOnClickListener(this);
+        ChapeteadoCard.setOnClickListener(this);
 
         //Esto es necesario para poner el menu en la toolbar
         MaterialToolbar toolbar = (MaterialToolbar)
@@ -142,6 +144,12 @@ public class MenuGranjasAlimento extends AppCompatActivity implements View.OnCli
             case R.id.telehuetocardId:
                 i = new Intent(this, CapturaAlimento.class);
                 i.putExtra("GranjaId", "8");
+                startActivity(i);
+                break;
+
+            case R.id.chapeteadocardId:
+                i = new Intent(this, CapturaAlimento.class);
+                i.putExtra("GranjaId", "9");
                 startActivity(i);
                 break;
 

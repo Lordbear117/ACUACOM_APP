@@ -55,88 +55,101 @@
             android:gravity="bottom"
             >
 
-
-            // Contiene ZONA y ESTANQUE
-            <LinearLayout
+            // CONTIENE ZONA y ESTANQUE
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:gravity="bottom">
+                android:columnCount="2"
+                android:rowCount="2"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                >
 
+                //android:paddingLeft="20dp"
+               // android:paddingStart="20dp"
+                <TextView
+                    android:layout_gravity="left"
+                    android:text="Zona"
 
+                    android:layout_column="0"
+                    android:layout_row="0"
+                    android:padding="5dp"
+
+                    ></TextView>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight = "1"
-                    android:text="Zona                                                            Estanque">
+                    android:layout_gravity="right"
+                    android:text="Estanque"
+                    android:paddingRight="80dp"
+                    android:paddingEnd="80dp"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:padding="5dp"
+                    >
                 </TextView>
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="bottom">
-
-
-
+                // CONTIENE ZONA
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     app:cardBackgroundColor="#fff"
                     app:rippleColor="@color/primaryLightColor"
                     app:cardElevation="8dp"
-                    android:layout_weight = "1"
+
+                    android:layout_column="0"
+                    android:layout_row="1"
+
+                    android:layout_gravity="left"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
                     >
 
                     <Spinner
                         android:id="@+id/SpinZona"
-                        android:layout_width="match_parent"
+                        android:layout_width="140dp"
                         android:layout_height="match_parent"
                         android:clickable="true"
                         android:padding="20dp"
-                        android:layout_weight = "1"
+
+                        android:layout_column="0"
+                        android:layout_row="1"
+                        android:layout_gravity="left"
+
+                        android:paddingLeft="20dp"
+                        android:paddingStart="20dp"
                         >
                     </Spinner>
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight = "1">
 
-                </View>
-
+                // CONTIENE ESTANQUE
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     app:cardBackgroundColor="#fff"
                     app:rippleColor="@color/primaryLightColor"
                     app:cardElevation="8dp"
-                    android:layout_weight = "1"
+
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_gravity="right"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:paddingRight="10dp"
                     >
 
-                    <Spinner
-                        android:id="@+id/SpinEstanque"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:padding="20dp"
-                        android:layout_weight = "1"
-                        >
-                    </Spinner>
+                <Spinner
+                    android:id="@+id/SpinEstanque"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:padding="20dp"
+                    >
+                </Spinner>
 
                 </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
-
+            </GridLayout>
 
 
 
@@ -145,24 +158,23 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="10dp"
+                android:paddingTop="20dp"
                 >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="     Fecha Inicial"
+                    android:text="Fecha Inicial"
+                    android:paddingLeft="18dp"
                     >
                 </TextView>
 
-                // android:hint="Fecha"
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:labelFor="@id/etFecha"
-
                     android:padding="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -204,18 +216,17 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="     Fecha Final"
+                    android:text="Fecha Final"
+                    android:paddingLeft="18dp"
                     >
                 </TextView>
 
-                // android:hint="Fecha"
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:labelFor="@id/etFechaFin"
-
                     android:padding="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -253,14 +264,15 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="20dp"
-                android:gravity="bottom">
+                android:gravity="bottom"
+                >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight = "1"
                     android:text="Ciclo"
-                    android:padding="5dp">
+                    android:padding="5dp"
+                    android:paddingLeft="18dp">
                 </TextView>
 
 
@@ -290,44 +302,6 @@
 
 
 
-            //  Contiene CANTIDAD
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="bottom">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="      Cantidad"
-                >
-
-            </TextView>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etCantidad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000"
-                    android:maxLines="1"
-                    android:inputType="number"
-                    android:background="#ffffff"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </FrameLayout>
-
-
             //  Contiene PESO PROMEDIO
             <FrameLayout
                 android:layout_width="match_parent"
@@ -338,7 +312,49 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="      Peso Promedio"
+                    android:text="Peso Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPesoProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+
+            //  Contiene PORCENTAJE DE SOBREVIVENCIA
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Porcentaje de Sobrevivencia"
+                    android:paddingLeft="18dp"
                     >
 
                 </TextView>
@@ -353,7 +369,7 @@
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etPesoProm"
+                        android:id="@+id/etPorcentajeSobre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#000"
@@ -365,6 +381,331 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </FrameLayout>
+
+
+
+            //  Contiene PORCENTAJE DE RECAMBIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Porcentaje de Recambio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPorcentajeRecam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+            // CONTIENE OXIGENO MINIMO Y MAXIMO, LAYOUT BIEN ARREGLADO
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:text="Oxigeno Mínimo"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="0"
+
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="right"
+                    android:text="Oxigeno Máximo"
+                    android:paddingRight="20dp"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    >
+                </TextView>
+
+
+
+                // CONTIENE OXIGENO MINIMO
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_gravity="left"
+
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOxigenoMin"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+                        android:nextFocusDown="@+id/etOxigenoMax"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                // CONTIENE OXIGENO MAXIMO
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingRight="10dp"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_gravity="right"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etOxigenoMax"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+                        android:nextFocusDown="@+id/etTemperaturaMin"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </GridLayout>
+
+
+
+
+            // CONTIENE TEMERATURA MINIMA Y MAXIMA
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                >
+
+                <TextView
+                    android:layout_gravity="left"
+                    android:text="Temperatura Mínima"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="0"
+
+                    ></TextView>
+
+                <TextView
+                    android:layout_gravity="right"
+                    android:text="Temperatura Máxima"
+
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    >
+                </TextView>
+
+                // CONTIENE TEMERATURA MINIMA
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingLeft="20dp"
+                    android:layout_column="0"
+                    android:layout_row="1"
+                    android:layout_gravity="left"
+
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTemperaturaMin"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+                        android:nextFocusDown="@+id/etTemperaturaMax"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                // CONTIENE TEMERATURA MAXIMA
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingRight="10dp"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:layout_gravity="right"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTemperaturaMax"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </GridLayout>
+
+
+            //  CONTIENE SALINIDAD PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom"
+                android:paddingTop="20dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Salinidad Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSalinidadProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+            //  CONTIENE PH PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Ph Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+            //  CONTIENE TURBULENCIA PROMEDIO
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Turbulencia Promedio"
+                    android:paddingLeft="18dp"
+                    >
+
+                </TextView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTurbulenciaProm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal"
+                        android:background="#ffffff"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </FrameLayout>
+
+
+
 
 
 
